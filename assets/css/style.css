@@ -1,0 +1,25 @@
+.charactersI {
+    height: 100px;
+    padding: 10px;
+    background-color: #444;
+    border: 2px white;
+    border-style: dashed;
+    border-radius: 10px;
+}
+
+#instructions, .charactersI {
+    margin-bottom: 5vh;
+}
+
+body, html{
+    height: 100%;
+
+}
+
+.bg {
+    background-image: url(../images/hothLandscape.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
