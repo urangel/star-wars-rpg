@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "jedi";
+    src: url(star_jedi_font/starjedi/Starjhol.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "jout";
+    src: url(star_jedi_font/starjout/Starjout.ttf) format("truetype");
+}
+
 .charactersI {
     height: 100px;
     padding: 10px;
@@ -7,8 +17,19 @@
     border-radius: 10px;
 }
 
+h1 {
+    color: #ffe919;
+    font-family: jedi;
+    font-size: 8vh;
+    font-weight: 1000;
+}
+
+h2 {
+    font-family: jout;
+}
+
 #instructions, .charactersI {
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
 }
 
 body, html{
@@ -16,10 +37,24 @@ body, html{
 
 }
 
+p.hp {
+    color: #222;
+    font-size: 1.25em;
+    font-weight: 500;
+}
+
 .bg {
     background-image: url(../images/hothLandscape.jpg);
     height: 100%;
     background-position: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
 }
+
+.buttRow {
+    margin-bottom: 5vh;
+}
+
+/* .restart {
+    display: none;
+} */
