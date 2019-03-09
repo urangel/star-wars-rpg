@@ -1,26 +1,26 @@
 // Here's some scripting!!
 
 var lukeSkywalker = {
-    hp : 120,
-    ap : 9,
-    cap : 15
+    hp : 86,
+    ap : 12,
+    cap : 12
 };
 
 var darthVader = {
-    hp : 80,
-    ap : 3,
-    cap : 25
+    hp : 110,
+    ap : 8,
+    cap : 16
 };
 
 var princessLeia = {
     hp : 100,
-    ap : 6,
-    cap : 20
+    ap : 10,
+    cap : 14
 };
 
 var palpatine = {
-    hp : 60,
-    ap : 12,
+    hp : 81,
+    ap : 14,
     cap : 10
 };
 
@@ -38,30 +38,6 @@ var attMult = 1;
 
 function restart() {
 
-    lukeSkywalker = {
-        hp : 120,
-        ap : 6,
-        cap : 15
-    };
-    
-    darthVader = {
-        hp : 80,
-        ap : 2,
-        cap : 25
-    };
-    
-    princessLeia = {
-        hp : 100,
-        ap : 4,
-        cap : 20
-    };
-    
-    palpatine = {
-        hp : 60,
-        ap : 8,
-        cap : 10
-    };
-
     moddedAp = 0;
     playerHP = 0;
     enemyHP = 0;
@@ -72,18 +48,16 @@ function restart() {
     attCount = 0;
     attMult = 1;
 
-    //will need to move all player elements back to the start div and empty out all of the other divs
     $("#instructions").text("Choose your character") ;
-    $(".attack").show();
+
     $("#player > div.characters").appendTo($(".charactersC"));
     $("#enemy > div.characters").appendTo($(".charactersC"));
     $("#defeated > div.characters").appendTo($(".charactersC"));
 
-    $(".lukeSkywalker span").text(120);
-    $(".darthVader span").text(80);
+    $(".lukeSkywalker span").text(90);
+    $(".darthVader span").text(110);
     $(".princessLeia span").text(100);
-    $(".palpatine span").text(60);
-
+    $(".palpatine span").text(81);
 
     $("#restart").hide();
 
@@ -91,6 +65,8 @@ function restart() {
 
 $(document).ready(function() {
     $("#restart").hide();
+    $(".attack").hide();
+
 
 $(".restart").on("click", function(){
     restart();
@@ -103,7 +79,6 @@ $(".charactersI").on("click", function(){
         playerNum = this.alt;
         var player = charArr[(this.alt)];
         moddedAp = player.ap;
-        console.log(moddedAp);
         playerHP = player.hp;
         var playerElement = $(this);
         $("#instructions").text("You chose " + this.value + ". Now choose your first opponent!") ;
@@ -114,6 +89,7 @@ $(".charactersI").on("click", function(){
     }   
         
     else if (clickCount === 1){
+        $(".attack").show();
         clickCount++;
         enemyNum = this.alt;
         var enemy = charArr[enemyNum];
@@ -143,23 +119,13 @@ $(".charactersI").on("click", function(){
     
 
     $(".attack").on("click", function(){
-    
-        if (defeatCount === 3 ){
-            $("#instructions").text("Victory") ;
-            $(".attack").hide();
-            $("#restart").show();
-    
-    
-        }
+
 
         if (clickCount >= 2){
             attCount++;
             enemyHP = enemyHP - moddedAp;
             playerHP = playerHP - charArr[enemyNum].cap;
             moddedAp = moddedAp + attCount * charArr[playerNum].ap
-            console.log("enemyHP: " + enemyHP);
-            console.log("playerHP: " + playerHP);
-            console.log("playerAP: " +charArr[playerNum].ap);
             $("#player span").text(playerHP);
             $("#enemy span").text(enemyHP);
 
@@ -172,9 +138,15 @@ $(".charactersI").on("click", function(){
             else if (enemyHP <= 0){
                 $("#instructions").text("You win! Choose your next foe.") ;
                 // $("#enemy").text("WASTED");
-                $("#enemy").appendTo("#defeated");
+                $("#enemy input").parent().appendTo("#defeated");
                 clickCount = 1;         
                 defeatCount++;
+                    
+                    if (defeatCount === 3 ){
+                        $("#instructions").text("Victory") ;
+                        $(".attack").hide();
+                        $("#restart").show();
+                    }
             }
 
         }
