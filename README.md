@@ -8,4 +8,6 @@ Then the player chooses the first enemy and attacks by clicking the attack butto
 
 Attacking repeatedly will result in either defeating the opponent or losing by losing all hp.
 
-##_*Try and defeat them all!*_
+## _*Try and defeat them all!*_
+
+[Site](https://urangel.github.io/unit-4-game/)
