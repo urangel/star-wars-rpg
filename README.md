@@ -10,4 +10,4 @@ Attacking repeatedly will result in either defeating the opponent or losing by l
 
 ## _*Try and defeat them all!*_
 
-[Site](https://urangel.github.io/unit-4-game/)
+[Site](https://urangel.github.io/star-wars-rpg/)
